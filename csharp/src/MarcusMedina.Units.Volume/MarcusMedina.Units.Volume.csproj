@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageId>MarcusMedina.Units.Volume</PackageId>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
     <Title>MarcusMedina.Units.Volume</Title>
     <Description>Fluent volume unit conversion — metric, US customary, British imperial, and historical Swedish units.</Description>
     <Authors>Marcus Medina</Authors>
