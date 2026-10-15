@@ -10,29 +10,35 @@ namespace MarcusMedina.Units.Volume.SwedishOld;
 /// </summary>
 public static class SwedishOldVolumeExtensions
 {
-    /// <summary>1 jungfru = 1/4 stop = 81.93 mL</summary>
-    public static Volume Jungfru(this int v) => new(v * 81.93);
-    public static Volume Jungfru(this double v) => new(v * 81.93);
+    extension(int v)
+    {
+        /// <summary>1 jungfru = 1/4 stop = 81.93 mL</summary>
+        public Volume Jungfru() => new(v * 81.93);
+        /// <summary>1 stop = 1/8 kanna = 327.72 mL</summary>
+        public Volume Stop() => new(v * 327.72);
+        /// <summary>1 kanna = 2 617.7 mL (= 2.6177 liter, huvudenheten)</summary>
+        public Volume Kanna() => new(v * 2_617.7);
+        /// <summary>1 ankare = 15 kannor = 39 265.5 mL (ölankare)</summary>
+        public Volume Ankare() => new(v * 39_265.5);
+        /// <summary>1 tunna = 48 kannor = 125 649.6 mL (torrvolym säd)</summary>
+        public Volume Tunna() => new(v * 125_649.6);
+    }
 
-    /// <summary>1 stop = 1/8 kanna = 327.72 mL</summary>
-    public static Volume Stop(this int v) => new(v * 327.72);
-    public static Volume Stop(this double v) => new(v * 327.72);
+    extension(double v)
+    {
+        public Volume Jungfru() => new(v * 81.93);
+        public Volume Stop() => new(v * 327.72);
+        public Volume Kanna() => new(v * 2_617.7);
+        public Volume Ankare() => new(v * 39_265.5);
+        public Volume Tunna() => new(v * 125_649.6);
+    }
 
-    /// <summary>1 kanna = 2 617.7 mL (= 2.6177 liter, huvudenheten)</summary>
-    public static Volume Kanna(this int v) => new(v * 2_617.7);
-    public static Volume Kanna(this double v) => new(v * 2_617.7);
-
-    /// <summary>1 ankare = 15 kannor = 39 265.5 mL (ölankare)</summary>
-    public static Volume Ankare(this int v) => new(v * 39_265.5);
-    public static Volume Ankare(this double v) => new(v * 39_265.5);
-
-    /// <summary>1 tunna = 48 kannor = 125 649.6 mL (torrvolym säd)</summary>
-    public static Volume Tunna(this int v) => new(v * 125_649.6);
-    public static Volume Tunna(this double v) => new(v * 125_649.6);
-
-    public static double ToJungfru(this Volume v) => v.Milliliters / 81.93;
-    public static double ToStop(this Volume v) => v.Milliliters / 327.72;
-    public static double ToKanna(this Volume v) => v.Milliliters / 2_617.7;
-    public static double ToAnkare(this Volume v) => v.Milliliters / 39_265.5;
-    public static double ToTunna(this Volume v) => v.Milliliters / 125_649.6;
+    extension(Volume v)
+    {
+        public double ToJungfru() => v.Milliliters / 81.93;
+        public double ToStop() => v.Milliliters / 327.72;
+        public double ToKanna() => v.Milliliters / 2_617.7;
+        public double ToAnkare() => v.Milliliters / 39_265.5;
+        public double ToTunna() => v.Milliliters / 125_649.6;
+    }
 }
